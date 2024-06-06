@@ -1,0 +1,12 @@
+import requests
+
+token = "ppp"
+repo_name = "new-repository"
+
+response = requests.post(
+    "https://api.github.com/user/repos",
+    headers={"Authorization": f"Bearer {token}"},
+    json={"name": repo_name}
+)
+
+print(response.json().get("full_name", "Ошибка создания репозитория"))
